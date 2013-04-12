@@ -1,0 +1,9 @@
+C:\Users\Bret\Documents\GitHub\home\ProjectEuler\ProjectEuler\bin\Debug\ProjectEuler.exe.config
+C:\Users\Bret\Documents\GitHub\home\ProjectEuler\ProjectEuler\bin\Debug\ProjectEuler.XML
+C:\Users\Bret\Documents\GitHub\home\ProjectEuler\ProjectEuler\bin\Debug\ProjectEuler.exe
+C:\Users\Bret\Documents\GitHub\home\ProjectEuler\ProjectEuler\bin\Debug\ProjectEuler.pdb
+C:\Users\Bret\Documents\GitHub\home\ProjectEuler\ProjectEuler\bin\Debug\FSharp.Core.dll
+C:\Users\Bret\Documents\GitHub\home\ProjectEuler\ProjectEuler\bin\Debug\FSharp.Core.xml
+C:\Users\Bret\Documents\GitHub\home\ProjectEuler\ProjectEuler\obj\Debug\ProjectEuler.fsprojResolveAssemblyReference.cache
+C:\Users\Bret\Documents\GitHub\home\ProjectEuler\ProjectEuler\obj\Debug\ProjectEuler.exe
+C:\Users\Bret\Documents\GitHub\home\ProjectEuler\ProjectEuler\obj\Debug\ProjectEuler.pdb
