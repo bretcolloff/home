@@ -41,8 +41,10 @@ def main(argv=None):
         for route in list(routes):
             s = ''.join([board[x][y] for (x,y) in route])
             (exists, word) = t.lookup(s)
-            if exists:
-                print (s, word)
+            if not exists:
+                routes.remove(route)
+                continue
+
             (x, y) = route[0]
             up = (x, y-1)
             down = (x, y+1)
