@@ -21,7 +21,7 @@ def main(argv=None):
 
     # Generate board
     board = []
-    size = 200
+    size = 20
     for i in range(0,size):
         line = []
         for j in range(0, size):
@@ -52,9 +52,10 @@ def main(argv=None):
                 continue
 
             if word:
+                #print (s, " - ", route)
                 words.append(s)
 
-            (x, y) = route[0]
+            (x, y) = route[-1]
             up = (x, y-1)
             down = (x, y+1)
             left = (x-1, y)
@@ -65,31 +66,40 @@ def main(argv=None):
             ul = (x-1, y-1)
             dl = (x-1, y+1)
 
+            #for n in range(-1, 1):
+            #    for m in range(-1, 1):
+            #        n = n + x
+            #        m = m + y
+            #        point = (n, m)
+            #        if n >= 0 and n < size and m >= 0 < m < size and point not in route:
+            #            routes.append(route + [point])
+
             if x > 0 and left not in route:
                 routes.append(route + [left])
-            if x < 4 and right not in route:
+            if x < size - 1 and right not in route:
                 routes.append(route + [right])
             if y > 0 and up not in route:
                 routes.append(route + [up])
-            if y < 4 and down not in route:
+            if y < size - 1 and down not in route:
                 routes.append(route + [down])
 
             if x > 0 and y > 0 and ul not in route:
                 routes.append(route + [ul])
-            if x > 0 and y < 4 and dl not in route:
+            if x > 0 and y < size - 1 and dl not in route:
                 routes.append(route + [dl])
-            if x < 4 and y > 0 and ur not in route:
+            if x < size - 1 and y > 0 and ur not in route:
                 routes.append(route + [ur])
-            if x < 4 and y < 4 and dr not in route:
+            if x < size - 1 and y < size - 1 and dr not in route:
                 routes.append(route + [dr])
             routes.remove(route)
             if not routes:
                 break
 
+    end = time.time()
     wordset = set(words)
     for word in wordset:
         print (word)
-    end = time.time()
+
     print ("Finished in ", end - start, "seconds.")
 
     print("finished")
