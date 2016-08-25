@@ -1,5 +1,6 @@
-import string
 import random
+import string
+import time
 from lib.trie import Trie
 
 #Pick a starting point.
@@ -20,9 +21,10 @@ def main(argv=None):
 
     # Generate board
     board = []
-    for i in range(0,5):
+    size = 200
+    for i in range(0,size):
         line = []
-        for j in range(0, 5):
+        for j in range(0, size):
             line.append(random.choice(string.ascii_uppercase))
 
         board.append(line)
@@ -31,9 +33,11 @@ def main(argv=None):
     checklist = []
     words = []
 
+    start = time.time()
+
     # Starting from each point
-    for i in range(0, 5):
-        for j in range(0, 5):
+    for i in range(0, size):
+        for j in range(0, size):
             routes.append([(i, j)])
 
     # While there are still routes to evaluate, expand and evaluate.
@@ -43,7 +47,12 @@ def main(argv=None):
             (exists, word) = t.lookup(s)
             if not exists:
                 routes.remove(route)
+                if not routes:
+                    break
                 continue
+
+            if word:
+                words.append(s)
 
             (x, y) = route[0]
             up = (x, y-1)
@@ -74,12 +83,14 @@ def main(argv=None):
             if x < 4 and y < 4 and dr not in route:
                 routes.append(route + [dr])
             routes.remove(route)
-            checklist.append(route)
+            if not routes:
+                break
 
-    for route in checklist:
-        s = ''.join([board[x][y] for (x,y) in route])
-        if s in d:
-            print(s)
+    wordset = set(words)
+    for word in wordset:
+        print (word)
+    end = time.time()
+    print ("Finished in ", end - start, "seconds.")
 
     print("finished")
 if __name__ == '__main__':

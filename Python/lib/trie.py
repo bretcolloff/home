@@ -13,7 +13,8 @@ class Trie:
         chars = list(word)
 
         p = self.root
-        for char in chars:
+        last = len(chars) - 1
+        for i, char in enumerate(chars):
             found = False
             # see if the children container the character.
             for child in p.children:
@@ -22,9 +23,13 @@ class Trie:
                     p = child
                     break
 
+            if i == last and found:
+                p.isWord = True
+                break
+
             if not found:
                 # we didn't find the character, lets add it.
-                end = char == chars[-1]
+                end = i == last
                 newNode = Node(char, end)
                 p.children.append(newNode)
                 p = newNode
@@ -32,15 +37,17 @@ class Trie:
     def lookup(self, word):
         chars = list(word)
 
+        last = len(chars) - 1
         p = self.root
-        for char in chars:
+        for i, char in enumerate(chars):
             found = False
             for child in p.children:
                 if child.character == char:
                     found == True
-                    if char == chars[-1]:
+                    if i == last:
                         return (True, child.isWord)
                     p = child
 
-                if child == p.children[-1]:
+                elif p.children and child == p.children[-1]:
                     return (False, False)
+        return (False, False)
