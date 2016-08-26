@@ -19,8 +19,9 @@ def main(argv=None):
     middle = sum(y for x,y in points) / count
 
     #Split the points
-    top = [p for p in points if p[1] > middle]
-    bottom = [p for p in points if p[1] <= middle]
+    #top = sorted([p for p in points if p[1] > middle], key=lambda x: x[0])
+    top = [(0.6637461455718785, 6.247109561516067), (1.484270514375422, 7.717968957467511), (1.7642448293150836, 9.630483599941682), (2.9903533889165113, 9.332790899459754), (4.20799194695063, 9.15171082847384), (4.600751073006984, 7.595420538537139), (5.669572149435239, 8.82998085959816), (8.902037645352546, 5.8274526234967965)]
+    bottom = sorted([p for p in points if p[1] <= middle], key=lambda x: x[1])
     lines = []
     for i in range(0, len(top) - 2):
         a = top[i]
