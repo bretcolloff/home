@@ -1,5 +1,3 @@
-
-
 def main(argv=None):
     with open("maze.txt") as file:
         maze = [list(line.strip()) for line in file]

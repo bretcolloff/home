@@ -1,7 +1,11 @@
+import os, sys
+lib_path = os.path.abspath(os.path.join('..', '..'))
+sys.path.append(lib_path)
 import random
 import string
 import time
 from lib.trie import Trie
+
 
 #Pick a starting point.
 #while(Problem is not solved)
